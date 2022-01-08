@@ -41,7 +41,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome back to Wastify! Help us making your city a better place. Also to all you netizens be a responsible citizen always remember to use dustbnins if you want to throw some waste!"
+        android:text="Welcome back to Wastify! Help us making your city a better place. Also to all you netizens be a responsible citizen always remember to use dustbins if you want to throw some waste!"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:fontFamily="@font/alegreya"

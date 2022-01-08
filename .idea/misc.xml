@@ -10,16 +10,22 @@
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/drawable/progress_bg.xml" value="0.17395833333333333" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_admin.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_admin_complain.xml" value="0.14666666666666667" />
+        <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_admin_driver_leave.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_admin_driver_monitor.xml" value="0.1578125" />
+        <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_citizen_complain.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_citizen_complan.xml" value="0.16666666666666666" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_developers.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_driver.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_driver_duty.xml" value="0.14666666666666667" />
+        <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_driver_leave.xml" value="0.16666666666666666" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_drivers.xml" value="0.1578125" />
+        <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_dustbin_nearby.xml" value="0.1578125" />
+        <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_garbage_van_time.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_list_data.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_login.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_main.xml" value="0.12" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_on_boarding_screen.xml" value="0.1" />
+        <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_profile.xml" value="0.14666666666666667" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_signup.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_splash_screen.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/activity_super_admin.xml" value="0.16666666666666666" />
@@ -27,12 +33,14 @@
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/header.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/item.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/item_containing_complains.xml" value="0.1578125" />
+        <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/item_containing_leaves.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/item_containing_location.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/item_containing_onboard.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/item_containing_onboarding.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/layout/item_mission.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/menu/activity_main_drawer.xml" value="0.1578125" />
         <entry key="..\:/WastifyCodeJOD/app/src/main/res/menu/menu.xml" value="0.1578125" />
+        <entry key="..\:/WastifyCodeJOD/app/src/main/res/menu/search_menu.xml" value="0.1578125" />
       </map>
     </option>
   </component>

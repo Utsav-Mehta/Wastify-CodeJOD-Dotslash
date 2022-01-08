@@ -17,21 +17,18 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
 
-public class DriverActivity extends AppCompatActivity {
-    TextView time, date,drivername;
-    FirebaseAuth fbaseAuth;
+public class Profile extends AppCompatActivity {
+    FirebaseAuth firebaseAuth;
     FirebaseFirestore fstore;
-    Button leaveApply;
+    TextView driver_prof_name,boss_name;
+    Button logout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drivers);
-
+        setContentView(R.layout.activity_profile);
 
         View decorView = getWindow().getDecorView();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -42,30 +39,13 @@ public class DriverActivity extends AppCompatActivity {
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
             );
         }
-
-        time = findViewById(R.id.Time_time);
-        date = findViewById(R.id.Date_date);
-        drivername=findViewById(R.id.driverName);
-        leaveApply=findViewById(R.id.leaveApplyBtn);
-
-        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-        String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
-
-        date.setText(currentDate);
-        time.setText(currentTime);
-
+        driver_prof_name=findViewById(R.id.drivername);
+        logout=findViewById(R.id.logoutInProf);
+        boss_name=findViewById(R.id.bossname);
         fstore=FirebaseFirestore.getInstance();
-        fbaseAuth=FirebaseAuth.getInstance();
+        firebaseAuth=FirebaseAuth.getInstance();
 
-        leaveApply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), DriverLeaveActivity.class));
-            }
-        });
-
-
-        String userId= Objects.requireNonNull(fbaseAuth.getCurrentUser()).getUid();
+        String userId= Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
         DocumentReference dr=fstore.collection("users").document(userId);
 
         dr.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -75,20 +55,18 @@ public class DriverActivity extends AppCompatActivity {
                 String name=documentSnapshot.getString("fName");
                 Intent intent = new Intent(getApplicationContext(), DriverDutyActivity.class);
                 intent.putExtra("driver_name",name);
-                drivername.setText("Dear "+name);
+                driver_prof_name.setText("Name: "+name);
+                boss_name.setText("Authority name: Mr. RK Singh,Director-Solid Waste Managment cell)");
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),SignupActivity.class));
+                firebaseAuth.signOut();
             }
         });
 
     }
-
-    public void openimageinput(View v) {
-        Intent intent = new Intent(this, DriverDutyActivity.class);
-        startActivity(intent);
-    }
-
-    public void openprofile(View v) {
-        Intent intent = new Intent(this, Profile.class);
-        startActivity(intent);
-    }
-
 }

@@ -14,7 +14,7 @@
         android:fontFamily="@font/alegreya"
         android:text="Wastify"
         android:textColor="#c62828"
-        android:textSize="26dp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

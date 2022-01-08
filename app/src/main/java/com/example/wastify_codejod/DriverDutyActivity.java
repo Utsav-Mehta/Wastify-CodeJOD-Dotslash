@@ -13,12 +13,15 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,7 +57,7 @@ import java.util.Map;
 public class DriverDutyActivity extends AppCompatActivity {
     Button updateBtn;
     FusedLocationProviderClient fusedLocationProviderClient;
-    Button uploadBtn;
+    Button uploadBtn,enDutyBtn;
     FirebaseAuth fAuth;
     ImageView driverImage;
     FirebaseFirestore fStore;
@@ -70,17 +73,30 @@ public class DriverDutyActivity extends AppCompatActivity {
         updateBtn =findViewById(R.id.updateBtn);
         uploadBtn=findViewById(R.id.uploadBtn);
         driverImage=findViewById(R.id.image);
+        enDutyBtn=findViewById(R.id.endDutyBtn);
         date=findViewById(R.id.driverDate);
         time=findViewById(R.id.driverTime);
 
-        //firebase
+
+        View decorView = getWindow().getDecorView();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            );
+        }
+
+
+            //firebase
         fAuth= FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
         firebaseStorage=FirebaseStorage.getInstance();
         storageReference=firebaseStorage.getReference();
 
         Intent intent = getIntent();
-        String str = intent.getStringExtra("driver_name");
+        String name = intent.getStringExtra("driver_name");
 
         String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
@@ -89,6 +105,49 @@ public class DriverDutyActivity extends AppCompatActivity {
         time.setText(currentTime);
 
         fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(this);
+
+        enDutyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder
+                        = new AlertDialog
+                        .Builder(DriverDutyActivity.this);
+                builder.setMessage("Are you sure you want end your duty?");
+                // Set Alert Title
+                builder.setTitle("Alert !");
+
+                builder
+                        .setPositiveButton(
+                                "Yes",
+                                new DialogInterface
+                                        .OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog,
+                                                        int which)
+                                    {
+                                        startActivity(new Intent(getApplicationContext(), DriverActivity.class));
+                                    }
+                                });
+
+                builder
+                        .setNegativeButton(
+                                "No",
+                                new DialogInterface
+                                        .OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialog,
+                                                        int which)
+                                    {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                AlertDialog alertDialog = builder.create();
+
+                alertDialog.show();
+            }
+        });
 
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override

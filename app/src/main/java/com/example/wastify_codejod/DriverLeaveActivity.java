@@ -29,88 +29,81 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CitizenComplain extends AppCompatActivity {
+public class DriverLeaveActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
-    EditText complainName,complainPhNumber,complainMain;
-    Button submitComplain;
-    ImageView backButton;
+    EditText leaveName,leaveDates,leaveReason;
+    Button submitLeave;
+    ImageView backButton2;
     FirebaseAuth fAuth;
-    ProgressBar pb_complain;
-
+    ProgressBar pb_leave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_citizen_complain);
+        setContentView(R.layout.activity_driver_leave);
 
         View decorView = getWindow().getDecorView();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             decorView.setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
             );
         }
 
-
-        fStore=FirebaseFirestore.getInstance();
-        complainName=findViewById(R.id.nameComplain);
-        complainPhNumber=findViewById(R.id.phoneNumComplain);
-        complainMain=findViewById(R.id.complainText);
-        submitComplain=findViewById(R.id.submitComplain);
-        backButton=findViewById(R.id.backButtonImgComp);
-        pb_complain =findViewById(R.id.pb4);
+        leaveName=findViewById(R.id.nameLeaveApplication);
+        leaveDates=findViewById(R.id.leaveDates);
+        leaveReason=findViewById(R.id.leaveText);
+        submitLeave=findViewById(R.id.submitLeave);
+        backButton2=findViewById(R.id.backButtonImg);
+        pb_leave =findViewById(R.id.pbInDl);
 
         fAuth= FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
 
-        submitComplain.setOnClickListener(new View.OnClickListener() {
+        submitLeave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nameComplain=complainName.getText().toString().trim();
-                String phoneNum=complainPhNumber.getText().toString().trim();
-                String compMain=complainMain.getText().toString().trim();
+                String leave_name=leaveName.getText().toString().trim();
+                String leave_date=leaveDates.getText().toString().trim();
+                String leave_reason=leaveReason.getText().toString().trim();
 
-                if(TextUtils.isEmpty(nameComplain)){
-                    complainName.setError("Enter your name!");
+                if(TextUtils.isEmpty(leave_name)){
+                    leaveName.setError("Enter your name!");
                     return;
                 }
-                if(TextUtils.isEmpty(phoneNum)){
-                    complainPhNumber.setError("Enter your phone number!");
+                if(TextUtils.isEmpty(leave_date)){
+                    leaveDates.setError("Enter the dates");
                     return;
                 }
-                if(phoneNum.length()<10){
-                    complainPhNumber.setError("Enter a valid phone number!");
-                    return;
-                }
-                if(TextUtils.isEmpty(compMain)){
-                    complainMain.setError("Write your complain!");
+
+                if(TextUtils.isEmpty(leave_reason)){
+                    leaveReason.setError("Write your reason!");
                     return;
                 }
 
                 FirebaseUser fuser = fAuth.getCurrentUser();
                 String userID = fAuth.getCurrentUser().getUid();
-                DocumentReference documentReference = fStore.collection("complains").document(userID);
-                Map<String,Object> complain_map = new HashMap<>();
-                complain_map.put("name_complain",nameComplain);
-                complain_map.put("phone_complain",phoneNum);
-                complain_map.put("complain",compMain);
+                DocumentReference documentReference = fStore.collection("leaves").document(userID);
+                Map<String,Object> leave_map = new HashMap<>();
+                leave_map.put("name_leave",leave_name);
+                leave_map.put("date_leave",leave_date);
+                leave_map.put("leave_reason",leave_reason);
 
-                pb_complain.setVisibility(View.VISIBLE);
+                pb_leave.setVisibility(View.VISIBLE);
 
-                documentReference.set(complain_map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                documentReference.set(leave_map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(CitizenComplain.this, "Your complain has been registered successfully! Our officer will contact you shortly.", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        Log.d(TAG, "onSuccess: complain registered for "+ userID);
+                        Toast.makeText(DriverLeaveActivity.this, "Your leave application has been registered successfully! Your designated authority will contact you shortly.", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getApplicationContext(), DriverActivity.class));
+                        Log.d(TAG, "onSuccess: leave registered for "+ userID);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(CitizenComplain.this, "Failed to file your complain! Please try after sometime", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        Toast.makeText(DriverLeaveActivity.this, "Failed to apply your leave! Please try after sometime", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), DriverActivity.class));
                         Log.d(TAG, "onFailure: " + e.toString());
                     }
                 });
@@ -118,12 +111,12 @@ public class CitizenComplain extends AppCompatActivity {
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
+        backButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder
                         = new AlertDialog
-                        .Builder(CitizenComplain.this);
+                        .Builder(DriverLeaveActivity.this);
                 builder.setMessage("All your changes will be discared! Are you sure you want to exit?");
                 // Set Alert Title
                 builder.setTitle("Alert !");
@@ -137,7 +130,7 @@ public class CitizenComplain extends AppCompatActivity {
                                     public void onClick(DialogInterface dialog,
                                                         int which)
                                     {
-                                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                        startActivity(new Intent(getApplicationContext(), DriverActivity.class));
                                     }
                                 });
 

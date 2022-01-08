@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    android:background="@color/white"
+    tools:context=".DriverDutyActivity">
 
     <ImageView
         android:id="@+id/image"
@@ -21,10 +21,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toBottomOf="@+id/bossname" />
 
     <Button
-        android:id="@+id/intentBtn2"
+        android:id="@+id/endDutyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/uploadBtn" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/bossname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

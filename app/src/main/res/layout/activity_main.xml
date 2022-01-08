@@ -230,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:padding="15dp"
-                    android:text="waste disposal"
+                    android:text="Waste disposal"
                     android:textColor="@color/white"
                     android:textSize="18dp" />
 
