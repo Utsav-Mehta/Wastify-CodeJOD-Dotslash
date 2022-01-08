@@ -8,7 +8,7 @@ The app "Wastify" is divided into three portals 'Super-Admin',  'Citizen',  'Dri
 
 
 <h2>Functionalities</h2>
-<p> In the citizen portal the features included are *Dustbin location, Garbage van collection time, Filing any complains related to Waste Management of city.* The citizens are provided with wet and dry dustbin locations of the city.</p>
+<p> In the citizen portal the features included are Dustbin location, Garbage van collection time, Filing any complains related to Waste Management of city. The citizens are provided with wet and dry dustbin locations of the city.</p>
 
 <p>In the Driver portal the main feature is the startDuty, in the startDuty feature of app the Driver has to upload the images of thier garbage collection at every stop he has been assinged as a part of this duty, along with the image the location details is shared to the Database with Time and Date. With the Duty submission feature the Driver portal has the feature to apply for leave.</p>
 
