@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "783934308446",
+    "project_id": "wastify-codejod",
+    "storage_bucket": "wastify-codejod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783934308446:android:d1844f52a8c8f866cf74cf",
+        "android_client_info": {
+          "package_name": "com.example.wastify_codejod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783934308446-gchhmbr5d0cbrphcp2efbd4url4et73s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTGZg3atUt9qVQFgRpUoZ435NZbZ1dXs4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783934308446-gchhmbr5d0cbrphcp2efbd4url4et73s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

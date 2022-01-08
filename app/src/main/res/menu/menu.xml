@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+<group android:checkableBehavior="single">
+    <item android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+        android:title="HOME" />
+
+    <item android:id="@+id/garbage_van_collection_time"
+        android:icon="@drawable/ic_garbage_van"
+        android:title="Garbage-Van Collection Time"/>
+
+    <item android:id="@+id/garbage_near_me"
+        android:icon="@drawable/ic_dustbin"
+        android:title="Garbage Bin Near Me"/>
+
+    <item android:id="@+id/complain"
+        android:icon="@drawable/ic_complains"
+        android:title="File a Complain"/>
+
+    <item android:id="@+id/developer"
+        android:icon="@drawable/ic_developers"
+        android:title="DEVELOPERS" />
+
+    <item android:id="@+id/logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout"/>
+
+
+
+</group>
+</menu>

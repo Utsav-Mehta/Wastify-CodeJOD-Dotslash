@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.wastify_codejod">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WastifyCodeJOD">
+        <activity
+            android:name=".DustbinNearbyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".GarbageVanTime"
+            android:exported="true" />
+        <activity
+            android:name=".Developers"
+            android:exported="true" />
+        <activity
+            android:name=".AdminDriverLeave"
+            android:exported="true" />
+        <activity
+            android:name=".AdminDriverMonitor"
+            android:exported="true" />
+        <activity
+            android:name=".DriverDutyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CitizenComplain"
+            android:exported="true" />
+        <activity
+            android:name=".AdminComplainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DriverActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SuperAdminActivity"
+            android:exported="true" />
+        <activity
+            android:name=".welcomePage"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".OnBoardingScreen"
+            android:exported="true" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>
